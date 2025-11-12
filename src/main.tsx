@@ -7,8 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import system from "./theme";
 const queryClient = new QueryClient();
-
 ReactDOM.createRoot(document.getElementById("root")!).render(
+  
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <ChakraProvider value={system}>

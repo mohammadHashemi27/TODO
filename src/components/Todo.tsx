@@ -48,7 +48,7 @@ export const Users = () => {
         boxShadow="md"
       >
         <List.Root gap={3}>
-          {users?.map((user) => (
+          {users?.slice(0, 8).map((user) => (
             <ListItem
               key={user.id}
               display="flex"
@@ -86,7 +86,7 @@ export const Users = () => {
 
       <Box textAlign="center" mt={6}>
         <Pagination.Root
-          count={60} 
+          count={60}
           page={page}
           onPageChange={(e) => setPage(e.page)}
         >
@@ -95,7 +95,7 @@ export const Users = () => {
               <IconButton
                 aria-label="Previous Page"
                 disabled={page === 1}
-                onClick={() => setPage((p) => Math.max(p - 1, 1))}
+                onClick={() => setPage((p) => Math.max(p - 1))}
               >
                 <HiChevronLeft />
               </IconButton>
@@ -106,7 +106,7 @@ export const Users = () => {
             <Pagination.NextTrigger asChild>
               <IconButton
                 aria-label="Next Page"
-                disabled={users?.length < pageSize}
+                disabled={page === 6}
                 onClick={() => setPage((p) => p + 1)}
               >
                 <HiChevronRight />
